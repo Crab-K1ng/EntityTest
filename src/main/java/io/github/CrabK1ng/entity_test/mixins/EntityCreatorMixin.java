@@ -1,6 +1,5 @@
 package io.github.CrabK1ng.entity_test.mixins;
 
-import finalforeach.cosmicreach.entities.DroneHiveEntity;
 import finalforeach.cosmicreach.entities.EntityCreator;
 import io.github.CrabK1ng.entity_test.TestEntity;
 import org.spongepowered.asm.mixin.Mixin;
@@ -12,8 +11,8 @@ import static finalforeach.cosmicreach.entities.EntityCreator.registerEntityCrea
 
 @Mixin(EntityCreator.class)
 public class EntityCreatorMixin {
-    @Inject(method = "static", at = @At("TAIL"))
-    private void injected(CallbackInfo ci) {
+    @Inject(method = "<clinit>", at = @At("TAIL"))
+    private static void injectIntoEntityRegistry(CallbackInfo info) {
         System.out.println("Injecting into EntityRegistry static initializer block");
         registerEntityCreator("crabk1ng:test_entity", TestEntity::new);
     }
