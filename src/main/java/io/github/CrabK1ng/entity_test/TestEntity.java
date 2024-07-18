@@ -34,10 +34,10 @@ public class TestEntity extends Entity {
                 () -> this.model = GameSingletons.entityModelLoader
                         .load(
                                 this,
-                                "model_drone_interceptor_trap.json",
-                                "drone_interceptor_trap.animation.json",
-                                "animation.drone-interceptor-trap.idle",
-                                "drone_interceptor_trap.png"
+                                "model_entity_test.json",
+                                "entity_test.animation.json",
+                                "animation.entity-test.idle",
+                                "entity_test.png"
                         )
         );
     }
@@ -64,12 +64,12 @@ public class TestEntity extends Entity {
             this.model.setCurrentAnimation(this, "animation.drone-interceptor-trap.open");
             this.timeSinceActivated = 0.0F;
         }
-
+//     look at lis
         if (this.timeSinceActivated >= 0.0F) {
             this.timeSinceActivated = (float)((double)this.timeSinceActivated + deltaTime);
             if ((double)this.timeSinceActivated > 0.5) {
                 for(int i = 0; i < MathUtils.random(1, 3); ++i) {
-                    String mobToSpawnId = "base:entity_drone_interceptor";
+                    String mobToSpawnId = "crabk1ng:test_entity";
                     Entity mob = EntityCreator.get(mobToSpawnId);
                     mob.setPosition(this.position);
                     mob.accelerate(0.0F, 500.0F, 0.0F);
