@@ -13,7 +13,7 @@ import finalforeach.cosmicreach.savelib.crbin.CRBSerialized;
 import finalforeach.cosmicreach.world.Zone;
 
 public class TestEntity extends Entity {
-    public static final String ENTITY_TYPE_ID = "crabk1ng:test_entity";
+    public static final String ENTITY_TYPE_ID = "test_entity:test_entity";
     static Array<SoundBuffer> hurts = new Array<>();
     @CRBSerialized
     float cryCountdown;
@@ -24,7 +24,7 @@ public class TestEntity extends Entity {
     boolean released = false;
 
     public TestEntity(){
-        super("crabk1ng:test_entity");
+        super("test_entity:test_entity");
         this.canDespawn = true;
         //this.sightRange = 5.0F;
         this.localBoundingBox.min.set(-0.5F, 0.0F, -0.5F);
@@ -61,7 +61,7 @@ public class TestEntity extends Entity {
         this.viewDirection.set(0.0F, 0.0F, -1.0F);
         Entity closestPlayerEntity = EntityUtils.getClosestPlayerToEntity(this, zone);
         if (closestPlayerEntity != null && this.timeSinceActivated < 0.0F && this.model != null) {
-            this.model.setCurrentAnimation(this, "animation.drone-interceptor-trap.open");
+            this.model.setCurrentAnimation(this, "animation.entity-test.open");
             this.timeSinceActivated = 0.0F;
         }
 //     look at lis
@@ -69,7 +69,7 @@ public class TestEntity extends Entity {
             this.timeSinceActivated = (float)((double)this.timeSinceActivated + deltaTime);
             if ((double)this.timeSinceActivated > 0.5) {
                 for(int i = 0; i < MathUtils.random(1, 3); ++i) {
-                    String mobToSpawnId = "crabk1ng:test_entity";
+                    String mobToSpawnId = "test_entity:test_entity";
                     Entity mob = EntityCreator.get(mobToSpawnId);
                     mob.setPosition(this.position);
                     mob.accelerate(0.0F, 500.0F, 0.0F);

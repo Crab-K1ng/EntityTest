@@ -14,6 +14,6 @@ public class EntityCreatorMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void injectIntoEntityRegistry(CallbackInfo info) {
         System.out.println("Injecting into EntityRegistry static initializer block");
-        registerEntityCreator("crabk1ng:test_entity", TestEntity::new);
+        registerEntityCreator("test_entity:test_entity", TestEntity::new);
     }
 }

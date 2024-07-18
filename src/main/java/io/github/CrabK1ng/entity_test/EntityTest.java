@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class EntityTest implements ModInitializer {
+	public static final String MOD_ID = "test_entity";
 	public static final Logger LOGGER = LoggerFactory.getLogger("Entity Test");
 
 	@Override
