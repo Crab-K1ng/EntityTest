@@ -1,0 +1,11 @@
+{
+    "stringId": "test_entity:entity_spawn",
+    "blockStates":
+    {
+        "default":
+        {
+            "modelName": "model_spawn",
+            "blockEventsId": "block_events_spawn"
+        }
+    }
+}

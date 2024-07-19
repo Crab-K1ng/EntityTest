@@ -15,5 +15,6 @@ public class EntityCreatorMixin {
     private static void injectIntoEntityRegistry(CallbackInfo info) {
         System.out.println("Injecting into EntityRegistry static initializer block");
         registerEntityCreator("test_entity:test_entity", TestEntity::new);
+
     }
 }

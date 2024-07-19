@@ -1,0 +1,19 @@
+{
+    "parent":"base:block_events_default",
+    "stringId": "test_entity:block_events_spawn",
+    "triggers":
+    {
+        "onInteract":
+        [
+            {
+                "actionId": "test_entity:spawn_mob",
+                "parameters":
+                {
+                    "xOff": 0, "yOff": 0, "zOff": 0,
+                    "radius": 5,
+                    "blockStateId": "base:air[default]"
+                }
+            }
+        ]
+    }
+}
