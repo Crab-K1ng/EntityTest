@@ -16,7 +16,7 @@ public class BlockEventsMixin {
     @Inject(method = "initBlockEvents", at = @At("HEAD"))
     private static void registerBlockEvent(CallbackInfo info){
         registerBlockEventAction(SpawnMob.class);
-        //BlockEvents.getInstance("block_events_spawn");
+        BlockEvents.getInstance("block_events_spawn");
         LOGGER.info("entity_spawn class register");
     }
 }
