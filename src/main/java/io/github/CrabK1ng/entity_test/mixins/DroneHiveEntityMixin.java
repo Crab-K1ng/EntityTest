@@ -13,7 +13,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-//help wanted here
+
 
 @Mixin(DroneHiveEntity.class)
 public class DroneHiveEntityMixin {

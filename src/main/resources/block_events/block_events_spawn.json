@@ -6,12 +6,53 @@
         "onInteract":
         [
             {
+                "actionId": "base:run_trigger",
+                "parameters": 
+                {
+                    "xOff": 0, "yOff": 0, "zOff": 0,
+                    "triggerId": "relayExplode"
+                }
+            }
+        ],
+        "onExplode":
+        [
+            {
+                "actionId": "base:run_trigger",
+                "parameters":
+                {
+                    "xOff": 0, "yOff": 0, "zOff": 0,
+                    "tickDelay": 5,
+                    "triggerId": "relayExplode"
+                }
+            }
+        ],
+        "relayExplode":
+        [
+            {
+                "actionId": "base:replace_block_state",
+                "parameters":
+                {
+                    "xOff": 0, "yOff": 0, "zOff": 0,
+                    "blockStateId": "base:air[default]"
+                }
+            },
+            {
                 "actionId": "test_entity:spawn_mob",
                 "parameters":
                 {
                     "xOff": 0, "yOff": 0, "zOff": 0,
                     "radius": 5,
                     "blockStateId": "base:air[default]"
+                }
+            },
+            {
+                "actionId": "base:play_sound_2d",
+                "parameters":
+                {
+                    "sound": "explosion.ogg",
+                    "volume": 1,
+                    "pitch": 1,
+                    "pan": 0
                 }
             }
         ]

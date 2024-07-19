@@ -4,7 +4,8 @@
     {
         "default":
         {
-            "modelName": "model_spawn"
+            "modelName": "model_spawn",
+            "blockEventsId": "block_events_spawn"
         }
     }
 }
