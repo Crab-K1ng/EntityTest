@@ -16,6 +16,7 @@ import java.util.Map;
 @ActionId(
         id = "test_entity:spawn_mob"
 )
+// just a copy of base:explode
 public class SpawnMob implements IBlockAction {
     String blockStateId;
     int xOff;

@@ -5,9 +5,10 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [],
   "client": [
-    "MainMenuMixin",
     "EntityCreatorMixin",
-    "DroneHiveEntityMixin"
+    "DroneHiveEntityMixin",
+    "BlockEventsMixin",
+    "BlockMixin"
   ],
   "injectors": {
     "defaultRequire": 1

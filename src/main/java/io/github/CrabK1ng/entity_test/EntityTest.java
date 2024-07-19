@@ -15,10 +15,6 @@ public class EntityTest implements ModInitializer {
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("Entity Test Initialized!");
-		BlockEvents.registerBlockEventAction(SpawnMob.class);
-		LOGGER.info("block_entity_spawn");
-		Block.getInstance("block_entity_spawn");
-		LOGGER.info("block_entity_spawn");
 	}
 }
 
