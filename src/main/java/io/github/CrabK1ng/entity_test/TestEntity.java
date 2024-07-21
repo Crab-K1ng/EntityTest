@@ -14,7 +14,7 @@ import finalforeach.cosmicreach.savelib.crbin.CRBSerialized;
 import finalforeach.cosmicreach.world.Zone;
 
 public class TestEntity extends Entity {
-   public static final String ENTITY_TYPE_ID = "test_entity:test_entity";
+   public static final String ENTITY_TYPE_ID = EntityTest.MOD_ID+":test_entity";
    public static final String LOOT_ID = "base:loot_interceptor";
    static Array<SoundBuffer> cries = new Array<>();
    static Array<SoundBuffer> steps = new Array<>();
@@ -31,7 +31,7 @@ public class TestEntity extends Entity {
    int attackChargeTime = MathUtils.random(20, 60);
 
    public TestEntity() {
-      super("test_entity:test_entity");
+      super(EntityTest.MOD_ID+":test_entity");
       this.canDespawn = true;
       this.loot = Loot.get("base:loot_interceptor");
       Threads.runOnMainThread(

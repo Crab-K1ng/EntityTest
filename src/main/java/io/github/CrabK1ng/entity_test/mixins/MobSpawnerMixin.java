@@ -1,6 +1,7 @@
 package io.github.CrabK1ng.entity_test.mixins;
 
 import finalforeach.cosmicreach.MobSpawner;
+import io.github.CrabK1ng.entity_test.EntityTest;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -15,7 +16,7 @@ public class MobSpawnerMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void injectIntoEntityRegistry(CallbackInfo info) {
         LOGGER.info("Injecting into mobspawner");
-        registerMob("test_entity:test_entity",true);
+        registerMob(EntityTest.MOD_ID+":test_entity",true);
 
     }
 }
