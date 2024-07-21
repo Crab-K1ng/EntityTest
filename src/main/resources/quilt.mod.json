@@ -16,9 +16,9 @@
       },
 
       "contact": {
-        "homepage": "https://github.com/Crab-K1ng",
-        "issues": "https://codeberg.org/CRModders/cosmic-quilt-example/issues",
-        "sources": "https://codeberg.org/CRModders/cosmic-quilt-example/"
+        "homepage": "https://github.com/Crab-K1ng/EntityTest",
+        "issues": "https://github.com/Crab-K1ng/EntityTest/issues",
+        "sources": "https://github.com/Crab-K1ng/EntityTest"
       },
 
       "icon": "assets/entity_test/icon.png"
