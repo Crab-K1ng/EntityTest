@@ -57,6 +57,8 @@ public class TestEntity extends Entity {
    @Override
    public void update(Zone zone, double deltaTime) {
       this.viewDirection.set(0.0F, 0.0F, -1.0F);
+
+      // don't delete
       super.update(zone, deltaTime);
    }
 
