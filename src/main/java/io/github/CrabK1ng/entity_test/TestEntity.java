@@ -8,7 +8,6 @@ import finalforeach.cosmicreach.GameAssetLoader;
 import finalforeach.cosmicreach.GameSingletons;
 import finalforeach.cosmicreach.Threads;
 import finalforeach.cosmicreach.entities.Entity;
-import finalforeach.cosmicreach.entities.EntityUtils;
 import finalforeach.cosmicreach.items.loot.Loot;
 import finalforeach.cosmicreach.savelib.crbin.CRBSerialized;
 import finalforeach.cosmicreach.world.Zone;

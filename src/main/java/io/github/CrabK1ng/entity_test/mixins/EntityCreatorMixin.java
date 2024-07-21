@@ -17,6 +17,5 @@ public class EntityCreatorMixin {
     private static void injectIntoEntityRegistry(CallbackInfo info) {
         LOGGER.info("EntityRegistry");
         registerEntityCreator(EntityTest.MOD_ID+":test_entity", TestEntity::new);
-
     }
 }

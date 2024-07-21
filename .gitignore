@@ -8,10 +8,6 @@ bin/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### my stuff ###
-/src/main/resources/models/entities/test_stuff/
-
-
 ### IntelliJ IDEA ###
 .idea/
 *.iws
