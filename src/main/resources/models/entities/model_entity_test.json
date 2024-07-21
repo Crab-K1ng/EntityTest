@@ -1,5 +1,5 @@
 {
-	"id": "base:entity_model:drone_interceptor",
+	"id": "entity_model:test_entity",
 	"texture_width": 64,
 	"texture_height": 32,
 	"bones": [
