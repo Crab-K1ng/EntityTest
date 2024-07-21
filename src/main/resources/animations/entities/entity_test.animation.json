@@ -1,6 +1,6 @@
 {
 	"animations": {
-		"animation.drone-interceptor.idle": {
+		"animation.entity-test.idle": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {

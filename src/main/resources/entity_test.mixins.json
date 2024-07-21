@@ -7,8 +7,7 @@
   "client": [
     "EntityCreatorMixin",
     "DroneHiveEntityMixin",
-    "BlockEventsMixin",
-    "BlockMixin"
+    "MobSpawnerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

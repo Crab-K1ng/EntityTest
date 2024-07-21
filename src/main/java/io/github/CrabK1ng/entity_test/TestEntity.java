@@ -1,90 +1,69 @@
 package io.github.CrabK1ng.entity_test;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Array;
 import de.pottgames.tuningfork.SoundBuffer;
 import finalforeach.cosmicreach.GameAssetLoader;
 import finalforeach.cosmicreach.GameSingletons;
 import finalforeach.cosmicreach.Threads;
 import finalforeach.cosmicreach.entities.Entity;
-import finalforeach.cosmicreach.entities.EntityCreator;
 import finalforeach.cosmicreach.entities.EntityUtils;
+import finalforeach.cosmicreach.items.loot.Loot;
 import finalforeach.cosmicreach.savelib.crbin.CRBSerialized;
 import finalforeach.cosmicreach.world.Zone;
 
 public class TestEntity extends Entity {
-    public static final String ENTITY_TYPE_ID = "test_entity:test_entity";
-    static Array<SoundBuffer> hurts = new Array<>();
-    @CRBSerialized
-    float cryCountdown;
-    @CRBSerialized
-    float stepCountdown;
-    @CRBSerialized
-    float timeSinceActivated = -1.0F;
-    boolean released = false;
+   public static final String ENTITY_TYPE_ID = "test_entity:test_entity";
+   public static final String LOOT_ID = "base:loot_interceptor";
+   static Array<SoundBuffer> cries = new Array<>();
+   static Array<SoundBuffer> steps = new Array<>();
+   static Array<SoundBuffer> hurts = new Array<>();
+   @CRBSerialized
+   float cryCountdown;
+   @CRBSerialized
+   float stepCountdown;
+   @CRBSerialized
+   float timer;
+   Loot loot;
+   private Vector3 tmpDesiredLocation = new Vector3();
+   @CRBSerialized
+   int attackChargeTime = MathUtils.random(20, 60);
 
-    public TestEntity(){
-        super("test_entity:test_entity");
-        this.canDespawn = true;
-        //this.sightRange = 5.0F;
-        this.localBoundingBox.min.set(-0.5F, 0.0F, -0.5F);
-        this.localBoundingBox.max.set(0.5F, 0.5F, 0.5F);
-        this.localBoundingBox.update();
-        Threads.runOnMainThread(
-                () -> this.model = GameSingletons.entityModelLoader
-                        .load(
-                                this,
-                                "model_entity_test.json",
-                                "entity_test.animation.json",
-                                "animation.entity-test.idle",
-                                "entity_test.png"
-                        )
-        );
-    }
+   public TestEntity() {
+      super("test_entity:test_entity");
+      this.canDespawn = true;
+      this.loot = Loot.get("base:loot_interceptor");
+      Threads.runOnMainThread(
+         () -> this.model = GameSingletons.entityModelLoader
+               .load(this, "model_entity_test.json", "entity_test.animation.json", "animation.entity-test.idle", "entity_test.png")
+      );
+   }
 
+   @Override
+   public void hit(float amount) {
+      super.hit(amount);
+      if (amount >= 0.0F) {
+         GameSingletons.soundManager.playSound3D(hurts.random(), this.position);
+      }
+   }
 
-    protected void onDeath(Zone zone) {
-        if (!this.released) {
+   @Override
+   protected void onDeath(Zone zone) {
+      this.loot.dropAsItems(zone, this.position);
+      super.onDeath(zone);
+   }
 
-        }
+   @Override
+   public void update(Zone zone, double deltaTime) {
+      this.viewDirection.set(0.0F, 0.0F, -1.0F);
+   }
 
-        super.onDeath(zone);
-    }
-
-    private void die(Zone zone) {
-        this.hitpoints = 0.0F;
-        this.onHitpointChange(zone);
-    }
-
-
-    public void update(Zone zone, double deltaTime) {
-        this.viewDirection.set(0.0F, 0.0F, -1.0F);
-        Entity closestPlayerEntity = EntityUtils.getClosestPlayerToEntity(this, zone);
-        if (closestPlayerEntity != null && this.timeSinceActivated < 0.0F && this.model != null) {
-            this.model.setCurrentAnimation(this, "animation.entity-test.open");
-            this.timeSinceActivated = 0.0F;
-        }
-//     look at lis
-        if (this.timeSinceActivated >= 0.0F) {
-            this.timeSinceActivated = (float)((double)this.timeSinceActivated + deltaTime);
-            if ((double)this.timeSinceActivated > 0.5) {
-                for(int i = 0; i < MathUtils.random(1, 3); ++i) {
-                    String mobToSpawnId = "test_entity:test_entity";
-                    Entity mob = EntityCreator.get(mobToSpawnId);
-                    mob.setPosition(this.position);
-                    mob.accelerate(0.0F, 500.0F, 0.0F);
-                    zone.allEntities.add(mob);
-                }
-
-                this.released = true;
-                this.die(zone);
-            }
-        }
-
-        super.update(zone, deltaTime);
-    }
-
-    static {
-        hurts.add(GameAssetLoader.getSound("sounds/entities/drone_interceptor/drone-hurt-1.ogg"));
-    }
+   static {
+      cries.add(GameAssetLoader.getSound("sounds/entities/drone_interceptor/drone-cry-1.ogg"));
+      cries.add(GameAssetLoader.getSound("sounds/entities/drone_interceptor/drone-cry-2.ogg"));
+      cries.add(GameAssetLoader.getSound("sounds/entities/drone_interceptor/drone-cry-3.ogg"));
+      steps.add(GameAssetLoader.getSound("sounds/entities/drone_interceptor/drone-step-1.ogg"));
+      hurts.add(GameAssetLoader.getSound("sounds/entities/drone_interceptor/drone-hurt-1.ogg"));
+   }
 }

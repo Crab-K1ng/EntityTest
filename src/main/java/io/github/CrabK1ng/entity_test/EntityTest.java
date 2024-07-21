@@ -1,9 +1,6 @@
 package io.github.CrabK1ng.entity_test;
 
 import dev.crmodders.cosmicquilt.api.entrypoint.ModInitializer;
-import finalforeach.cosmicreach.blockevents.BlockEvents;
-import finalforeach.cosmicreach.blocks.Block;
-import io.github.CrabK1ng.entity_test.blockevents.SpawnMob;
 import org.quiltmc.loader.api.ModContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
