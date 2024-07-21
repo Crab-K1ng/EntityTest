@@ -14,7 +14,7 @@ import static io.github.CrabK1ng.entity_test.EntityTest.LOGGER;
 public class MobSpawnerMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void injectIntoEntityRegistry(CallbackInfo info) {
-        LOGGER.info("Injecting into mobspawner Entity Test Initialized!");
+        LOGGER.info("Injecting into mobspawner");
         registerMob("test_entity:test_entity",true);
 
     }

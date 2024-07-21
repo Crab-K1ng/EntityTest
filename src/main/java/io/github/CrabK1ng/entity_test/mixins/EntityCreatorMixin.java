@@ -8,12 +8,13 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import static finalforeach.cosmicreach.entities.EntityCreator.registerEntityCreator;
+import static io.github.CrabK1ng.entity_test.EntityTest.LOGGER;
 
 @Mixin(EntityCreator.class)
 public class EntityCreatorMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void injectIntoEntityRegistry(CallbackInfo info) {
-        System.out.println("Injecting into EntityRegistry static initializer block");
+        LOGGER.info("EntityRegistry test entity");
         registerEntityCreator("test_entity:test_entity", TestEntity::new);
 
     }
