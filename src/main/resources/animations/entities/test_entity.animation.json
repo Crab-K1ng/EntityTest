@@ -1,6 +1,6 @@
 {
 	"animations": {
-		"animation.entity-test.idle": {
+		"animation.test_entity.idle": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {

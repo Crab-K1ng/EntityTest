@@ -21,10 +21,9 @@ public class EntityTest implements ModInitializer {
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info(EntityTest.MOD_NAME+" Initialized!");
 		for (String mobName : EntityTest.MOB_NAMES) {
-			System.out.println("mob:" + mobName);
+			LOGGER.info("mob:"+mobName+"add");
 		}
 	}
-
 	// add all mob names
 	static {
 		MOB_NAMES.add("test_entity");

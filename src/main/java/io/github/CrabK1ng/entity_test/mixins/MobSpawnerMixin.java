@@ -16,7 +16,6 @@ public class MobSpawnerMixin {
         LOGGER.info("Injecting into mobspawner");
         for (String mobName : EntityTest.MOB_NAMES) {
             registerMob(EntityTest.MOD_ID+":"+mobName,true);
-            LOGGER.info("mob:"+ mobName);
         }
     }
 }

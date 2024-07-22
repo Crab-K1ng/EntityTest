@@ -34,10 +34,10 @@ public class TestEntity extends Entity {
    public TestEntity() {
       super(EntityTest.MOD_ID+":"+MOB_NAME);
       this.canDespawn = true;
-      this.loot = Loot.get("base:loot_interceptor");
+      this.loot = Loot.get(LOOT_ID);
       Threads.runOnMainThread(
          () -> this.model = GameSingletons.entityModelLoader
-               .load(this, "model_entity_test.json", "entity_test.animation.json", "animation.entity-test.idle", "entity_test.png")
+               .load(this, "model_"+MOB_NAME+".json", MOB_NAME+".animation.json", "animation."+MOB_NAME+".idle", MOB_NAME+".png")
       );
    }
 
