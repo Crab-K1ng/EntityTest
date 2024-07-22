@@ -16,7 +16,7 @@ public class EntityCreatorMixin {
     private static void injectIntoEntityRegistry(CallbackInfo info) {
         LOGGER.info("EntityRegistry");
         for (String mobName : EntityTest.MOB_NAMES) {
-            System.out.println("mob:" + mobName);
+            LOGGER.info("mob:" + mobName);
         }
         registerEntityCreator(EntityTest.MOD_ID+":test_entity", TestEntity::new);
     }
