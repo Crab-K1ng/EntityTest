@@ -1,4 +1,4 @@
-package io.github.CrabK1ng.entity_test;
+package io.github.CrabK1ng.entity_test.entities;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector3;
@@ -11,9 +11,11 @@ import finalforeach.cosmicreach.entities.Entity;
 import finalforeach.cosmicreach.items.loot.Loot;
 import finalforeach.cosmicreach.savelib.crbin.CRBSerialized;
 import finalforeach.cosmicreach.world.Zone;
+import io.github.CrabK1ng.entity_test.EntityTest;
 
 public class TestEntity extends Entity {
-   public static final String ENTITY_TYPE_ID = EntityTest.MOD_ID+":test_entity";
+   private static final String MOB_NAME = "test_entity";
+   public static final String ENTITY_TYPE_ID = EntityTest.MOD_ID+":"+MOB_NAME;
    public static final String LOOT_ID = "base:loot_interceptor";
    static Array<SoundBuffer> cries = new Array<>();
    static Array<SoundBuffer> steps = new Array<>();
@@ -30,7 +32,7 @@ public class TestEntity extends Entity {
    int attackChargeTime = MathUtils.random(20, 60);
 
    public TestEntity() {
-      super(EntityTest.MOD_ID+":test_entity");
+      super(EntityTest.MOD_ID+":"+MOB_NAME);
       this.canDespawn = true;
       this.loot = Loot.get("base:loot_interceptor");
       Threads.runOnMainThread(
