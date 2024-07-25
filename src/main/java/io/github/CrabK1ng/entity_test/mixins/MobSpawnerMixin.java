@@ -14,7 +14,7 @@ public class MobSpawnerMixin {
     @Inject(method = "<clinit>", at = @At("TAIL"))
     private static void injectIntoEntityRegistry(CallbackInfo info) {
         LOGGER.info("Injecting into mobspawner");
-        for (String mobName : EntityTest.MOB_NAMES) {
+        for (String mobName : EntityTest.MOB_ID) {
             registerMob(EntityTest.MOD_ID+":"+mobName,true);
         }
     }

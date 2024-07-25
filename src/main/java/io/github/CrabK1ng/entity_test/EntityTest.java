@@ -12,18 +12,18 @@ public class EntityTest implements ModInitializer {
 	public static final String MOD_ID = "test_entity";
 	public static final String MOD_NAME = "Entity Test";
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
-	public static final List<String> MOB_NAMES = new ArrayList<>();
+	public static final List<String> MOB_ID = new ArrayList<>();
 
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info(EntityTest.MOD_NAME+" Initialized!");
-		for (String mobName : EntityTest.MOB_NAMES) {
-			LOGGER.info("mob:"+mobName+"add");
+		for (String mobName : EntityTest.MOB_ID) {
+			LOGGER.info("mob: "+mobName+" add");
 		}
 	}
 	// add all mob names
 	static {
-		MOB_NAMES.add("test_entity");
+		MOB_ID.add("test_entity");
 	}
 }
 
