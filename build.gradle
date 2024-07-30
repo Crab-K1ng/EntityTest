@@ -69,6 +69,8 @@ dependencies {
     // Cosmic Quilt
     internal "dev.crmodders:cosmicquilt:${cosmic_quilt_version}"
 
+    //EntityMenu
+    internal "com.github.Crab-K1ng:EntityMenu:${Entity_Menu_version}"
 }
 
 processResources {
