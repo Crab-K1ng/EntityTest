@@ -1,10 +1,9 @@
 package io.github.CrabK1ng.entity_test;
 
-import dev.crmodders.cosmicquilt.api.entrypoint.ModInitializer;
+
+import com.github.puzzle.loader.entrypoint.interfaces.ModInitializer;
+import com.github.puzzle.loader.mod.ModLocator;
 import io.github.CrabK1ng.entity_menu.MobMenuRegistry;
-import io.github.CrabK1ng.entity_test.entities.TestEntity;
-import net.fabricmc.loader.api.FabricLoader;
-import org.quiltmc.loader.api.ModContainer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.ArrayList;
@@ -18,10 +17,9 @@ public class EntityTest implements ModInitializer {
 	public static final List<String> MOB_ID = new ArrayList<>();
 
 	@Override
-	public void onInitialize(ModContainer mod) {
+	public void onInit() {
 		LOGGER.info(EntityTest.MOD_NAME+" Initialized!");
-		// adds support of EntityMenu
-		if (FabricLoader.getInstance().isModLoaded("entity_menu")) {
+		if (ModLocator.isModLoaded("entity_menu")){
 			MobMenuRegistry.registerMobButton("Test Entity", "test_entity:test_entity");
 		}
 		for (String mobName : EntityTest.MOB_ID) {
